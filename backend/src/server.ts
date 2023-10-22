@@ -1,12 +1,19 @@
-import express from "express";
+import "dotenv/config"
+import env from "./util/validateEnv"
+import mongoose from "mongoose";
+import app from "./app";
 
-const app = express()
-const port = 5000
 
-app.get("/", (req, res) => {
-   res.send("Hello Word")
-})
 
-app.listen(port, () => {
-   console.log("Server running on port: " + port)
-})
+const port = env.PORT
+
+mongoose.connect(env.MONGO_CONNECTIONS_STRING)
+      .then(() => {
+        console.log("Mongose connected")
+        app.listen(port, () => {
+         console.log("Server running on port: " + port)
+         })
+      })
+      .catch(console.error)
+
+
