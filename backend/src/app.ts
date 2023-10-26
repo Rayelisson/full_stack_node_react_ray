@@ -3,6 +3,7 @@
 import express, { NextFunction, Response, Request } from "express";
 import "dotenv/config";
 import notesRoutes from "./routes/notes"
+import userRoutes from "./routes/user"
 import morgan from "morgan";
 import createHttpError, { isHttpError } from "http-errors";
 const app = express();
@@ -11,6 +12,7 @@ app.use(morgan("dev"))
 
 app.use(express.json())
 
+app.use("/api/users", userRoutes)
 app.use('/api/notes', notesRoutes)
 
 app.use((req, res, next) => {
