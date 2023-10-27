@@ -7,7 +7,7 @@ import stylesUtils from "./styles/utils.module.css";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
 import * as NoteApi from "./network/notes_api";
-import AddNoteDialog from "./components/AddNoteDialog";
+import AddNoteDialog from "./components/AddEditNoteDialog";
 import Button from "react-bootstrap/Button";
 import { FaPlus } from "react-icons/fa";
 import { Spinner } from "react-bootstrap";
